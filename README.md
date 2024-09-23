@@ -5,7 +5,7 @@ This is a simple color filtering application implemented using HTML, CSS, and Ja
 ## Usage
 
 1. Start the application using `npx http-server`.
-2. Open your browser and navigate to http://localhost:8080.
+2. Open your browser and navigate to http://localhost:8080 or directly access the online version at https://filter-color.dlouxgit.workers.dev/.
 3. Click the "Add Color Range" button to add a new color picker.
 4. Use the color picker to select the color range you want.
 5. Click the "Apply Filter" button to apply the selected color range to the image.

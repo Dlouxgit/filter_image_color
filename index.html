@@ -20,6 +20,7 @@
 </head>
 <body>
     <h1>Color Filter</h1>
+    <input type="file" id="imageUpload" accept="image/*">
     <div id="color-pickers">
         <!-- Color pickers will be added here -->
     </div>
@@ -27,18 +28,25 @@
     <button onclick="applyFilter()">Apply Filter</button>
     <button onclick="restoreOriginalImage()">Restore Original Image</button>
     <br><br>
-    <br><br>
-    <br><br>
-    <br><br>
     <canvas id="canvas" width="600" height="400"></canvas>
 
     <script>
         const canvas = document.getElementById('canvas');
         const ctx = canvas.getContext('2d');
         let img = new Image();
-        img.src = 'ex.png'; // 替换为你的图片 URL
-
+        img.src = 'ex.png'
         let originalImageData = null;
+
+        document.getElementById('imageUpload').addEventListener('change', function(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    img.src = e.target.result;
+                };
+                reader.readAsDataURL(file);
+            }
+        });
 
         img.onload = function() {
             // 计算图片在画布上的位置，使其居中显示
@@ -109,7 +117,7 @@
 
         function saveColorPickers() {
             const colorPickers = document.querySelectorAll('.color-picker-container');
-            const colorRanges = [{"color1":"#470b0b","color2":"#d0e2d0"}];
+            const colorRanges = [];
 
             colorPickers.forEach(container => {
                 const color1 = container.querySelector('.color1').value;

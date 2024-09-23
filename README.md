@@ -4,7 +4,7 @@ This is a simple color filtering application implemented using HTML, CSS, and Ja
 
 ## Usage
 
-1. Start the application using npx http-server.
+1. Start the application using `npx http-server`.
 2. Open your browser and navigate to http://localhost:8080.
 3. Click the "Add Color Range" button to add a new color picker.
 4. Use the color picker to select the color range you want.
